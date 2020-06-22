@@ -1,0 +1,24 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "\"# Vue-Project\"",
+  "main": "index.js",
+  "dependencies": {
+    "g": "^2.0.1",
+    "serve": "^11.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuliaKirschenheuter/Vue-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuliaKirschenheuter/Vue-Project/issues"
+  },
+  "homepage": "https://github.com/JuliaKirschenheuter/Vue-Project#readme"
+}
