@@ -5,7 +5,18 @@ const app = new Vue({
     el: "#app",
 
     data: {
-        meetups: meetups
+        meetups: meetups,
+        filter: {
+            search: '',
+            date: '',
+            view: ''
+        }
     },
+    computed: {
+        filteredMeetups() {
+            return this.meetups.filter(meetup => meetup.title.toLowerCase().indexOf(this.filter.search) !== -1);
+        }
+    }
 
 });
+
