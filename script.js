@@ -12,9 +12,35 @@ const app = new Vue({
             view: ''
         }
     },
+
+    methods: {
+        // imageURL(meetup) {
+        //     return meetup.imageId ? `https://course-vue.javascript.ru/api/images/${meetup.imageId}` : undefined;
+        // },
+        // localDate(meetup) {
+        //     return new Date(meetup.date).toLocaleString(navigator.language, {
+        //         year: 'numeric',
+        //         month: 'long',
+        //         day: 'numeric',
+        //     })
+        // }
+    },
+
     computed: {
         filteredMeetups() {
-            return this.meetups.filter(meetup => meetup.title.toLowerCase().indexOf(this.filter.search) !== -1);
+            return this.processedMeetups.filter(meetup => meetup.title.toLowerCase().indexOf(this.filter.search) !== -1);
+        },
+
+        processedMeetups() {
+            return this.meetups.map((meetup) => ({
+                ...meetup,
+                cover: meetup.imageId ? `https://course-vue.javascript.ru/api/images/${meetup.imageId}` : undefined,
+                localeDate: new Date(meetup.date).toLocaleString(navigator.language, {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                })
+            }) )
         }
     }
 
