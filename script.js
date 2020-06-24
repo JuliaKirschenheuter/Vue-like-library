@@ -5,7 +5,8 @@ const app = new Vue({
     el: "#app",
 
     data: {
-        meetups: meetups,
+        meetups: [],
+        isLoadingMeetups: false,
         filter: {
             search: '',
             date: '',
@@ -14,8 +15,26 @@ const app = new Vue({
         }
     },
 
-    methods: {
+    created() {
 
+    },
+
+    async mounted() {
+        this.setMeetups(await app.fetchMeetups());
+    },
+
+    methods: {
+        async fetchMeetups() {
+            return new Promise((resolve => {
+                setTimeout(()=> {
+                        resolve(meetups)
+                    },1000)
+            }))
+        },
+
+        async setMeetups(meetups) {
+            this.meetups = meetups
+        }
     },
 
     computed: {
@@ -59,4 +78,11 @@ const app = new Vue({
     }
 
 });
+
+(async () => {
+    app.isLoadingMeetups = true;
+    app.setMeetups(await app.fetchMeetups());
+    app.isLoadingMeetups = false;
+})()
+
 
