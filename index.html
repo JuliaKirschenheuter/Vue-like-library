@@ -54,7 +54,8 @@
                                 class="form-check__input"
                                 type="radio"
                                 name="date"
-                                value=""
+                                v-model="filter.date"
+                                value="all"
                         />
                         <label class="form-check__label">Все</label>
                     </div>
@@ -63,6 +64,7 @@
                                 class="form-check__input"
                                 type="radio"
                                 name="date"
+                                v-model="filter.date"
                                 value="past"
                         />
                         <label class="form-check__label">Прошедшие</label>
@@ -72,6 +74,7 @@
                                 class="form-check__input"
                                 type="radio"
                                 name="date"
+                                v-model="filter.date"
                                 value="future"
                         />
                         <label class="form-check__label">Ожидаемые</label>
