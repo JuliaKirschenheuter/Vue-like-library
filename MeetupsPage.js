@@ -25,9 +25,9 @@ const template = `
                     </div>
                 </div>
                 <div class="form-group form-group_inline">
-                    <page-tabs v-model="filter.view"></page-tabs>
+                    <page-tabs :selected.sync="filter.view"></page-tabs>
                 </div>
-            </div>
+            </div>    
         </div>
           
         <transition v-if="filteredMeetups && filteredMeetups.length" name="fade" mode="out-in">

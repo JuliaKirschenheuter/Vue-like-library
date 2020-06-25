@@ -34,14 +34,11 @@ export const PageTabs = {
         }
     },
 
-    model: {
-        prop: 'selected',
-        event: 'change'
-    },
+
 
     methods: {
         select(value) {
-            this.$emit('change', value)
+            this.$emit('update:selected', value)
         }
     }
 }
