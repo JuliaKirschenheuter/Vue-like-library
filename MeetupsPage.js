@@ -1,5 +1,6 @@
 import meetups from "./data/meetups-data.js";
 import {MeetupsList} from "./MeetupsList.js";
+import {MeetupsCalendar} from "./MeetupsCalendar.js";
 
 const template = `
     <div class="container">
@@ -86,7 +87,9 @@ const template = `
             <transition name="fade" mode="out-in">
                 <meetups-list key="list" v-if="filter.view === '' || filter.view === 'list' "
                 :meetups="filteredMeetups"></meetups-list>
-                <div v-else-if="filter.view === 'calendar' " :key="calendar">Календарь</div>
+                <meetups-calendar v-else-if="filter.view === 'calendar' " 
+                :key="calendar"
+                :meetup="filteredMeetups"></meetups-calendar>
             </transition>
 
         </template>
@@ -98,7 +101,8 @@ const template = `
 export const MeetupsPage = {
     template,
     components: {
-        MeetupsList
+        MeetupsList,
+        MeetupsCalendar
     },
 
     data() {
