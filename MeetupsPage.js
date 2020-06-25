@@ -9,8 +9,6 @@ const template = `
         <div class="filters-panel">
             <div class="filters-panel__col"> 
                    <form-check v-model="filter.date" :options="dateFilterOptions"></form-check>
-                   <form-check v-model="filter.view" 
-                   :options="[{text: 'list', value: 'list'}, {text: 'calendar', value: 'calendar '}]"></form-check>
             </div>
 
             <div class="filters-panel__col">
@@ -27,7 +25,7 @@ const template = `
                     </div>
                 </div>
                 <div class="form-group form-group_inline">
-                    <page-tabs :selected="filter.view" @change="filter.view=$event"></page-tabs>
+                    <page-tabs v-model="filter.view"></page-tabs>
                 </div>
             </div>
         </div>
