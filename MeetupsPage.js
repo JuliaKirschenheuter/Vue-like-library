@@ -2,43 +2,13 @@ import meetups from "./data/meetups-data.js";
 import {MeetupsList} from "./MeetupsList.js";
 import {MeetupsCalendar} from "./MeetupsCalendar.js";
 import {PageTabs} from "./PageTabs.js";
+import {FormCheck} from "./FormCheck.js";
 
 const template = `
     <div class="container">
         <div class="filters-panel">
             <div class="filters-panel__col">
-                <div class="form-check">
-                    <div class="form-check__group">
-                        <input
-                                class="form-check__input"
-                                type="radio"
-                                name="date"
-                                v-model="filter.date"
-                                value="all"
-                        />
-                        <label class="form-check__label">Все</label>
-                    </div>
-                    <div class="form-check__group">
-                        <input
-                                class="form-check__input"
-                                type="radio"
-                                name="date"
-                                v-model="filter.date"
-                                value="past"
-                        />
-                        <label class="form-check__label">Прошедшие</label>
-                    </div>
-                    <div class="form-check__group">
-                        <input
-                                class="form-check__input"
-                                type="radio"
-                                name="date"
-                                v-model="filter.date"
-                                value="future"
-                        />
-                        <label class="form-check__label">Ожидаемые</label>
-                    </div>
-                </div>
+                   <form-check :selected="filter.date" @change="filter.date = $event"></form-check>
             </div>
 
             <div class="filters-panel__col">
@@ -74,7 +44,8 @@ export const MeetupsPage = {
     components: {
         MeetupsList,
         MeetupsCalendar,
-        PageTabs
+        PageTabs,
+        FormCheck
     },
 
     data() {
