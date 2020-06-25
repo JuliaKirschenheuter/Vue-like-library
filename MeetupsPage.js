@@ -7,8 +7,10 @@ import {FormCheck} from "./FormCheck.js";
 const template = `
     <div class="container">
         <div class="filters-panel">
-            <div class="filters-panel__col">
-                   <form-check v-model="filter.date" ></form-check>
+            <div class="filters-panel__col"> 
+                   <form-check v-model="filter.date" :options="dateFilterOptions"></form-check>
+                   <form-check v-model="filter.view" 
+                   :options="[{text: 'list', value: 'list'}, {text: 'calendar', value: 'calendar '}]"></form-check>
             </div>
 
             <div class="filters-panel__col">
@@ -80,6 +82,15 @@ export const MeetupsPage = {
     },
 
     computed: {
+        dateFilterOptions() {
+            return [
+                { text: 'Все', value: '' },
+                { text: 'Прошедшие', value: 'past' },
+                { text: 'Ожидаемые', value: 'future' },
+            ]
+        },
+
+
         filteredMeetups() {
             let filteredMeetups = this.processedMeetups;
 
