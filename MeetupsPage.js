@@ -8,7 +8,7 @@ const template = `
     <div class="container">
         <div class="filters-panel">
             <div class="filters-panel__col">
-                   <form-check :selected="filter.date" @change="filter.date = $event"></form-check>
+                   <form-check v-model="filter.date" ></form-check>
             </div>
 
             <div class="filters-panel__col">

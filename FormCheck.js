@@ -45,6 +45,11 @@ export const FormCheck = {
         }
     },
 
+    model: {
+        prop:  'selected',
+        event: 'change'
+    },
+
     methods: {
         change(value) {
             this.$emit('change', value);
